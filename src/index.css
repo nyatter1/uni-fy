@@ -1,0 +1,132 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --bg-dark: #09090b;
+  --panel-bg: rgba(20, 20, 25, 0.7);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-main: #ffffff;
+  --text-muted: #888888;
+  --accent: #ffffff;
+  
+  /* Quirks Colors */
+  --snap-yellow: #FFFC00;
+  --wa-green: #25D366;
+  --reddit-orange: #FF4500;
+  --tt-pink: #ff0050;
+  --tt-cyan: #00f2fe;
+  --insta-grad: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  --linkedin-blue: #0A66C2;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  height: 100vh;
+  overflow: hidden;
+}
+
+.ambient-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 80vw; height: 80vw;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, transparent 60%);
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.glass-panel {
+  background: var(--panel-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+}
+
+.story-circle {
+  min-width: 65px; height: 65px;
+  border-radius: 50%;
+  padding: 3px;
+  background: var(--insta-grad);
+  cursor: pointer;
+}
+
+.story-inner {
+  width: 100%; height: 100%; background: #222; border-radius: 50%; border: 2px solid var(--bg-dark);
+}
+
+.snap-btn {
+  width: 70px; height: 70px; border-radius: 50%;
+  background: transparent; border: 5px solid var(--snap-yellow);
+  display: flex; justify-content: center; align-items: center;
+  cursor: pointer; box-shadow: 0 0 20px rgba(255, 252, 0, 0.2);
+}
+
+.snap-btn-inner { width: 50px; height: 50px; background: rgba(255,255,255,0.2); border-radius: 50%; }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  :root {
+    font-size: 14px;
+  }
+  
+  .glass-panel {
+    padding: 1.5rem !important;
+  }
+  
+  h1 {
+    font-size: 1.875rem !important; /* text-3xl */
+  }
+  
+  h2 {
+    font-size: 1.5rem !important; /* text-2xl */
+  }
+  
+  .p-10 {
+    padding: 1.5rem !important;
+  }
+  
+  .p-8 {
+    padding: 1.25rem !important;
+  }
+  
+  .gap-8 {
+    gap: 1.5rem !important;
+  }
+  
+  .mt-12 {
+    margin-top: 2rem !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
